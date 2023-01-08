@@ -1,0 +1,13 @@
+#Mac 
+brew services start mysql
+brew services restart mysql
+brew services stop mysql
+
+
+
+2-2. MySQL 서버 종료하기
+
+mysql.server stop
+
+# Windows
+서비스에서  mysqld 시작하
