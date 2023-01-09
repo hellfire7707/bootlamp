@@ -7,6 +7,8 @@
 2. Java Compiler>Annotation Processing>Factory Path 선택
 3. Add External jars 버튼 클릭
 4. C:\Users\remote_desktop\.gradle\caches\modules-2\files-2.1\org.mapstruct\mapstruct-processor\1.5.3.Final\xxxxxxxxxxx\mapstruct-processor-1.5.3.Final.jar 추가
+5. Build Path>Order and Export 탭 선택
+6. 에서 .apt_generated 2개항목을 jre system library 위로 올리기
 5. rebuild
 
 
