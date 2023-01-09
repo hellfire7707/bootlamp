@@ -7,6 +7,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect    
   sql:
     init:
       data-locations: classpath*:db/h2/data.sql
@@ -14,6 +15,6 @@ spring:
   # MySQL
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db?serverTimezone=Asia/Seoul  # url 설정
-    username: admin  # 계정 설정
-    password: 1234  # 비번 설정
+    url: jdbc:mysql://localhost:3306/bootlamp?serverTimezone=Asia/Seoul  # url 설정
+    username: bootlamp_user  # 계정 설정
+    password: bootlamp_user  # 비번 설정
