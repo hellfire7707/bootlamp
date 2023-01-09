@@ -17,5 +17,3 @@ spring:
     url: jdbc:mysql://localhost:3306/db?serverTimezone=Asia/Seoul  # url 설정
     username: admin  # 계정 설정
     password: 1234  # 비번 설정
-    
-    dd
