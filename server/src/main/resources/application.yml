@@ -18,3 +18,7 @@ spring:
     url: jdbc:mysql://localhost:3306/bootlamp?serverTimezone=Asia/Seoul  # url 설정
     username: bootlamp_user  # 계정 설정
     password: bootlamp_user  # 비번 설정
+    
+mail:
+  address:
+    admin: jmkim7707@gmail.com    
