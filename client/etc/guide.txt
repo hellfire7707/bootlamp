@@ -1,0 +1,6 @@
+
+========== 소스 import 후 해야할 내용 ==============
+1. react.js 모듈 다운로드
+	> C:\workspace-spring-tool-suite-4-4.17.0.RELEASE\bootlamp\client> npm install
+2. react startup
+	> npm start	 
