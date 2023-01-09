@@ -10,10 +10,24 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface BootcampMapper {
 
+    /**
+     * @param patchDto
+     * @return
+     */
     BootCamp bootPatchDtoToBootcamp(BootcampDto.Patch patchDto);
-    //수정
+    
+    
+    /** 수정
+     * @param bootcamp
+     * @return
+     */
     BootcampDto.PatchResponse bootcampToBootPatchResponseDto(BootCamp bootcamp);
-    //상세조회
+    
+    /** 상세조회
+     * @param bootCamp
+     * @param isVote
+     * @return
+     */
     default BootcampDto.DetailResponseDto bootcampTobootCampDetailResponseDto(BootCamp bootCamp, int isVote){
         BootcampDto.DetailResponseDto responseDto = new BootcampDto.DetailResponseDto();
         responseDto.setBootcampId(bootCamp.getBootcampId());
@@ -36,7 +50,10 @@ public interface BootcampMapper {
     }
 
 
-    //전체조회
+    /** 전체조회
+     * @param bootcamps
+     * @return
+     */
     List<BootcampDto.Response> bootcampToBootcampResponsesDto(List<BootCamp> bootcamps);
 
 }

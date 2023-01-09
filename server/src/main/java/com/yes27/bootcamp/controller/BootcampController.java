@@ -1,41 +1,47 @@
 package com.yes27.bootcamp.controller;
 
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.Positive;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.yes27.bootcamp.dto.BootcampDto;
 import com.yes27.bootcamp.entity.BootCamp;
 import com.yes27.bootcamp.mapper.BootcampMapper;
 import com.yes27.bootcamp.service.BootcampService;
-import com.yes27.mybootcamp.service.MybootcampService;
 import com.yes27.member.entity.Member;
 import com.yes27.member.service.MemberService;
-
+import com.yes27.mybootcamp.service.MybootcampService;
 import com.yes27.response.MultiResponseDto;
 import com.yes27.response.SingleResponseDto;
-import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.Positive;
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/bootcamp")
 public class BootcampController {
-    private final BootcampService bootcampService;
-    private final MemberService memberService;
-
-    private final MybootcampService mybootcampService;
-    private final BootcampMapper mapper;
-
-    public BootcampController(BootcampService bootcampService, MemberService memberService, MybootcampService mybootcampService, BootcampMapper mapper) {
-        this.bootcampService = bootcampService;
-        this.memberService = memberService;
-        this.mybootcampService = mybootcampService;
-        this.mapper = mapper;
-    }
+	@Autowired
+    BootcampService bootcampService;
+	@Autowired
+    MemberService memberService;
+	@Autowired
+    MybootcampService mybootcampService;
+	@Autowired
+    BootcampMapper mapper;
+    
     //일정 수정
     @PatchMapping("/{bootcampId}")
     public ResponseEntity patchCamp(@PathVariable("bootcampId") Long bootcampId,
@@ -64,6 +70,7 @@ public class BootcampController {
         return new ResponseEntity(new MultiResponseDto<>(mapper.bootcampToBootcampResponsesDto(bootcamps),pageBootcamps), HttpStatus.OK);
 
     }
+    
     //상세 조회 로그인 한 경우
     @GetMapping("/{bootcampId}")
     public ResponseEntity getCamp(@PathVariable("bootcampId") Long bootcampId,
