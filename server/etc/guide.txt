@@ -22,3 +22,7 @@ brew services stop mysql
 
 # Windows
 서비스에서 MYsql80 시작하기
+
+
+========== 테스트용 가입/로그인 계정 =========
+jmkim7707@gmail.com / werjWe#$k2234

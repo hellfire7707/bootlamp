@@ -1,4 +1,4 @@
-DROP TABLE member;
+/*DROP TABLE member;
 DROP TABLE member_roles;
 DROP TABLE postscript_vote;
 DROP TABLE postscript_view;
@@ -15,6 +15,7 @@ DROP TABLE mentor_view;
 DROP TABLE mentor_vote;
 DROP TABLE mybootcamp;
 DROP TABLE boot_camp;
+*/
 
 -- 유저/역할
 CREATE TABLE member (
