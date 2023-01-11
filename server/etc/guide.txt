@@ -26,4 +26,4 @@ brew services stop mysql
 
 ========== 테스트용 가입/로그인 계정 =========
 jmkim7707@gmail.com / werjWe#$k2234
-jmkim7707@gmail.com / werjWe#$k2234
+
