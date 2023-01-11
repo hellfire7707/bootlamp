@@ -32,7 +32,8 @@
     "react/react-in-jsx-scope": 0,
     "react/jsx-uses-react": 0,
     "react/prop-types": 0,
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "prettier/prettier": 0
   },
 
   "overrides": [
