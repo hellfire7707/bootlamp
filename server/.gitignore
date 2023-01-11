@@ -1,2 +1,10 @@
 /bin/
+
+
 /.apt_generated/
+
+# eclipse setting
+.classpath
+.factorypath
+.project
+/.settings
