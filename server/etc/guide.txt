@@ -11,6 +11,8 @@
 6. 에서 .apt_generated 2개항목을 jre system library 위로 올리기
 5. rebuild
 
+=수정함ㅇㅇㅇ
+
 
 
 
