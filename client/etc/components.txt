@@ -8,4 +8,8 @@ App
  > Forum
  > PageNotFound
  > AuthoRoute
- > MyPage
+ > MyPage O
+    > MyPageList O 나의 작성글
+        > MyPageLists
+    > MyPageSchedule O 찜한일정
+        > MyPageTable 
