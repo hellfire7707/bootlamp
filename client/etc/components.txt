@@ -9,7 +9,13 @@ App
  > PageNotFound
  > AuthoRoute
  > MyPage O
+    > UserProfile
     > MyPageList O 나의 작성글
         > MyPageLists
     > MyPageSchedule O 찜한일정
         > MyPageTable 
+
+
+TODO:
+ - UserProfile에 사진 업로드하고 보여주는 기능
+ - 아이디/비밀번호 찾기 기능
