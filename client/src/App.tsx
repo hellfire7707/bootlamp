@@ -19,11 +19,9 @@ function App() {
 
   return (
     <>
-      {pathname === '/users/login' || pathname === '/users/signup' ? null : pathname === '/' ? (
-        <MainHeader />
-      ) : (
-        <PageHeaderSide />
-      )}
+      {pathname === '/users/login' || pathname === '/users/signup' ? null 
+        : pathname === '/' ? <MainHeader /> : <PageHeaderSide />
+      }
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/users/login" element={<Login />} />

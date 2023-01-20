@@ -5,3 +5,4 @@ server/build
 server/HELP.md
 
 server/src/main/resources
+server/src/main/.DS_Store

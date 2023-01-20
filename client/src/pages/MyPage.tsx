@@ -5,7 +5,12 @@ import MyPageList from '../components/MyPageContent/MyPageList';
 import * as S from './MyPage.style';
 import UserProfile from '../components/MyPageContent/UserProfile';
 
+/**
+ * 마이페이지 콤포넌트
+ * @returns 
+ */
 const MyPage = () => {
+  //현재 설정된 탭 id
   const [currentTab, setCurrentTab] = useState<number>(0);
 
   const TabHandler = (id: number) => {
@@ -19,10 +24,11 @@ const MyPage = () => {
   return (
     <S.PageSize>
       <S.MyPageContent>
+        {/* 탭 버튼 리스트 area */}
         <div className="tab-menu">
           <span className="page-name">My Page</span>
 
-          <div className="tab-content">
+          <div className="tab-content">                              
             {TabMenu.map((el) => (
               <S.ButtonTab
                 key={el.id}
@@ -34,6 +40,8 @@ const MyPage = () => {
             ))}
           </div>
         </div>
+
+        {/* 탭 바디 area */}
         <div className="tab-body">
           <div className="icon-wrapper">
             <img src={icon} alt="logo" />

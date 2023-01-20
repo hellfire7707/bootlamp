@@ -11,18 +11,24 @@ interface LoginValue {
   email: string;
   password: string;
 }
+
+/**
+ * Login 콤포넌트
+ * @returns 
+ */
 const Login = () => {
   const setLogStatus = useSetRecoilState(logUser);
   const navigate = useNavigate();
   const { state } = useLocation();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginValue>({ mode: 'onBlur' });
+  const { register, handleSubmit, formState: { errors },} = useForm<LoginValue>({ mode: 'onBlur' });
 
+
+  /**
+   * 로그인 form submit handler
+   * @param data 
+   */
   const onSubmit: SubmitHandler<LoginValue> = async (data) => {
-    userLogin(data, setLogStatus, navigate, state);
+    userLogin(data, setLogStatus, navigate, state);// 유저 로그인 API호출
   };
 
   return (

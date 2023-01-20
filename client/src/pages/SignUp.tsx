@@ -14,17 +14,22 @@ type SignUpValue = {
   check: boolean;
 };
 
+/**
+ * 회원 가입 콤포넌트
+ * @returns 
+ */
 const SignUp = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    watch,
-  } = useForm<SignUpValue>({ mode: 'onBlur' });
+  const { register, handleSubmit, formState: { errors },watch,} = useForm<SignUpValue>({ mode: 'onBlur' });
   const watchPassword = watch('password', '');
   const navigate = useNavigate();
 
+
+  /**
+   * 회원가입 form submit handler
+   * @param data 
+   */
   const onSubmit: SubmitHandler<SignUpValue> = async (data) => {
+    //회원가입 API 호출
     userSignUp(data, navigate);
   };
 
