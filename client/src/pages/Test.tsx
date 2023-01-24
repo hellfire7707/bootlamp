@@ -1,6 +1,10 @@
 import * as S from './Test.style';
 import StartForm from '../components/TestForm/StartForm';
 
+/**
+ * 적성검사 TEST 콤포넌트
+ * @returns 
+ */
 const Test = () => {
   return (
     <>

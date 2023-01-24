@@ -54,7 +54,12 @@ public class BootcampController {
 
     }
 
-    //일정 조회
+    /** 부트캠프/학원일정 리스트 조회 
+     * @param page
+     * @param size
+     * @param sort
+     * @return
+     */
     @GetMapping
     public ResponseEntity getCamps(@Positive @RequestParam int page,
                                   @Positive @RequestParam int size,
@@ -78,7 +83,7 @@ public class BootcampController {
         Integer isVote = 0;
         try{
             String email = request.getUserPrincipal().getName();
-            Member findMember = memberService.findVerifiedMemberByEmail(email);
+            Member findMember = memberService.findVerifiedMemberByEmail(email); //계정 기준으로 조회
             isVote = bootcampService.isVote(bootcampId, findMember);
         }
         catch (NullPointerException e){

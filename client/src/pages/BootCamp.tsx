@@ -8,6 +8,10 @@ import SearchBar from '../components/SearchBar/SearchBar';
 import { FilterButton } from '../components/Button';
 import { BootData, MobileTable, Table } from '../components/Table/Table';
 
+/**
+ * 부트캠프/학원일정 콤포넌트 
+ * @returns 
+ */
 const BootCamp = () => {
   const [items, setItems] = useState<BootData[]>([]);
   const [page, setPage] = useState(1);
@@ -20,6 +24,7 @@ const BootCamp = () => {
 
   const getItems = useCallback(async (page: number) => {
     setLoading(true);
+    //부부트캠프/학원일정 리스트 API 호출 [페이지사이즈=10, 등록일자 내림차순]
     await axios.get(`/bootcamp?page=${page}&size=10&sort=finalRegisterDate`).then((res) => {
       setItems((items) => items.concat(res.data.data));
       setTotalPages(res.data.pageInfo.totalPages);

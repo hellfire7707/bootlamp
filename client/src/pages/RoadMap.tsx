@@ -41,9 +41,18 @@ const SelectButton = styled.button`
     margin-bottom: 1rem;
   }
 `;
+
+/**
+ * 로드맵 콤포넌트
+ * @returns 
+ */
 const RoadMap = () => {
   const [linkSelect, setLinkSelect] = useState<number>(0);
 
+  /**
+   * 로드맵 버튼 클릭 이벤트 핸들러
+   * @param id 
+   */
   const roadMapBtn = (id: number) => {
     setLinkSelect(id);
   };
@@ -57,10 +66,9 @@ const RoadMap = () => {
       <ButtonContent>
         {roadMapMenu.map((el) => (
           <SelectButton
-            key={el.id}
-            onClick={() => roadMapBtn(el.id)}
-            className={linkSelect === el.id ? 'select-btn' : 'nonselect-btn'}
-          >
+              key={el.id}
+              onClick={() => roadMapBtn(el.id)}
+              className={linkSelect === el.id ? 'select-btn' : 'nonselect-btn'}>
             <a href={`https://roadmap.sh/${el.text}`} target="_blank" rel="noreferrer">
               {el.text}
             </a>

@@ -19,6 +19,10 @@ const SearchWrapper = styled.form`
   }
 `;
 
+/**
+ * 검색바 콤포넌트
+ * @returns
+ */
 const SearchBar = () => {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();

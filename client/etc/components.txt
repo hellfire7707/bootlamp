@@ -1,10 +1,15 @@
 App
- > Login O
- > SignUp O
- > Test
- > RoadMap
- > BootCamp
- > BootCameDetail
+ > 로그인 Login O
+ > 회원가입 SignUp O
+ > 적성검사 Test O
+    > StartForm O
+        > WarningWindow O
+            > TypeForm  O
+                > EndForm O
+ > 로드맵 RoadMap
+ > BootCamp O
+    > SearchBar
+ > BootCampDetail
  > Forum
  > PageNotFound
  > AuthoRoute

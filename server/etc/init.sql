@@ -176,3 +176,26 @@ CREATE TABLE boot_camp (
 	,weekend_status varchar(255)
 	,yard_man varchar(255)
 );
+
+-- 부트캠프 리스트
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('97','(주)알파코','모집중','2022-12-08','[누구나 AI] 딥러닝 부트 캠프','무료(국비지원)','온/오프라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('72','인천일보아카데미','모집중','2022-12-08','빅데이터를 활용한 웹 시각화 양성과정','무료(국비지원)','오프라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('196','라이징캠프','모집중','2022-12-09','안드로이드 클래스','72만원','온라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('197','라이징캠프','모집중','2022-12-09','Server 클래스','72만원','온라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('198','라이징캠프','모집중','2022-12-09','Web 클래스','72만원','온라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('199','라이징캠프','모집중','2022-12-09','ios클래스','72만원','온라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('74','아시아경제 교육센터','모집중','2022-12-11','빅데이터 기반 디지털 산업융합 서비스 개발자 양성과정','무료(국비지원)','오프라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('200','코드캠프','모집중','2022-12-11','온라인 부트캠프 3기','600만원','온라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('201','코드캠프','모집중','2022-12-11','온라인 풀스택 부트캠프','850만원','온라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('184','코드캠프','모집중','2022-12-11','오프라인 부트캠프 ','850만원','오프라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('202','코드캠프','모집중','2022-12-11','오프라인 풀스택 부트캠프','1280만원','오프라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('75','아시아경제 교육센터','모집중','2022-12-11','빅데이터 분석 기반 AI 서비스 개발 부트캠프','무료(국비지원)','오프라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('16','아시아경제 교육센터','모집중','2022-12-12','핀테크 디지털 금융사이언티스트 양성과정','무료(국비지원)','오프라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('159','한경닷컴IT교육센터','모집중','2022-12-18','[핀테크 캠프]클라우드 기반 백엔드 금융 서비스 개발 실무','무료(국비지원)','오프라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('175','엔코아 아카데미','모집중','2022-12-18','인공지능을 활용한 휴먼 포즈 제네레이션 시스템 개발자 양성 과정','무료(국비지원)','오프라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('163','한경닷컴IT교육센터','모집중','2022-12-18','AI기반 빅데이터 분석과 RPA활용 프로젝트','무료(국비지원)','오프라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('48','아시아경제 교육센터','모집중','2022-12-19','실무프로젝트 기반 AI기술 활용 전문가 양성과정','무료(국비지원)','오프라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('187','F-Lab','모집중','2022-12-20','안드로이드 멘토링 프로그램','600만원','온라인');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('170','멀티캠퍼스','모집중','2022-12-21','[멀티잇]데이터 분석&엔지니어 취업캠프(Python)','무료(국비지원)','온오프 혼합');
+insert into boot_camp(bootcamp_Id, title, begin_Register_Date, final_Register_Date, process, total_Cost, on_Off) values('173','멀티캠퍼스','모집중','2022-12-22','[멀티잇]백엔드 개발자 취업캠프(Java)','무료(국비지원)','온오프 혼합');
+
