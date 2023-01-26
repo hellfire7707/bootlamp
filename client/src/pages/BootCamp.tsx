@@ -14,24 +14,27 @@ import { BootData, MobileTable, Table } from '../components/Table/Table';
  */
 const BootCamp = () => {
   const [items, setItems] = useState<BootData[]>([]);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState<number>();
+  const [page, setPage] = useState(1); //요청페이지
+  const [totalPages, setTotalPages] = useState<number>(); //총페이지수 
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
-  const [ref, inView] = useInView({
+  const [ref, inView] = useInView({ //TODO: 무슨 기능인지 모르겠음
     threshold: 1,
   });
 
+  /**
+   * 리스트 호출
+   */
   const getItems = useCallback(async (page: number) => {
     setLoading(true);
     //부부트캠프/학원일정 리스트 API 호출 [페이지사이즈=10, 등록일자 내림차순]
     await axios.get(`/bootcamp?page=${page}&size=10&sort=finalRegisterDate`).then((res) => {
       setItems((items) => items.concat(res.data.data));
-      setTotalPages(res.data.pageInfo.totalPages);
+      setTotalPages(res.data.pageInfo.totalPages); //페이징 
     });
     setLoading(false);
   }, []);
-
+  
   useEffect(() => {
     getItems(page);
   }, [page]);

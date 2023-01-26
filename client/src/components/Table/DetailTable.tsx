@@ -62,6 +62,13 @@ function decider(data: DataType, el: string | number) {
   } else return data[el];
 }
 
+/**
+ * DetailTable 콤포넌트
+ * @param data 상세 데이
+ * @param halfIdx 
+ * @param dataKeys 
+ * @returns 
+ */
 export const DetailTable = ({ data, halfIdx, dataKeys }: PropsType) => {
   return (
     <S.Detail>

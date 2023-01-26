@@ -44,6 +44,10 @@ const footerText = [
   { text: '깃허브링크(GitHub)', link: 'https://github.com/codestates-seb/seb40_main_027/tree/main' },
 ];
 
+/**
+ * Footer 콤포넌트
+ * @returns 
+ */
 const Footer = () => {
   return (
     <FooterWrapper>

@@ -11,14 +11,24 @@ export interface BootData {
   totalCost: string;
   onOff: string;
 }
+
+/**
+ * 테이블 항목 td 클릭시 이벤트 핸들러
+ */
 const onClick = () => {
+  // 브라우저 스크롤 가장 위로 올리기
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
   });
 };
 
-export const Table = ({ data }: any) => {
+/**
+ *  테이블 콤포넌트
+ * @param data
+ * @returns 
+ */
+export const Table = function({ data }: any) {
   const columnHelper = createColumnHelper<BootData>();
   const columns = [
     columnHelper.accessor('title', { header: '이름' }),
@@ -64,7 +74,13 @@ export const Table = ({ data }: any) => {
   );
 };
 
-export const MobileTable = ({ data }: any) => {
+/**
+ * 모바일용 테이블 콤포넌트
+ *  S.MobileComp에서 모바일일경우 보여주도록 컨트롤
+ * @param data 
+ * @returns 
+ */
+export const MobileTable = function({ data }: any) {
   return (
     <>
       {data.map((el: any, idx: number) => (

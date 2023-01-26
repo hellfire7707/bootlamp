@@ -40,7 +40,7 @@ const BootCampDetail = () => {
       method: 'get',
       url: `/bootcamp/${pathId}`,
       headers: {
-        Authorization: localStorage.getItem('access'),
+        Authorization: localStorage.getItem('access'), //TODO:auto가 뭔지 확인 
       },
     })
       .then((response) => {
@@ -49,6 +49,10 @@ const BootCampDetail = () => {
       .catch((err) => alert(err));
   }, [check]);
 
+  /**
+   * 찜 클릭 이벤트 핸들러
+   * @returns
+   */
   const onClick = () => {
     if (!isLog) return alert('로그인 후에 사용가능합니다.');
     else {

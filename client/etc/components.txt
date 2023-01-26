@@ -6,10 +6,13 @@ App
         > WarningWindow O
             > TypeForm  O
                 > EndForm O
- > 로드맵 RoadMap
+ > 로드맵 RoadMap O
  > BootCamp O
-    > SearchBar
- > BootCampDetail
+    > SearchBar TODO:
+    > Banner O
+    > Table O
+    > BootCampDetail
+        > DetailTable
  > Forum
  > PageNotFound
  > AuthoRoute
@@ -19,6 +22,8 @@ App
         > MyPageLists
     > MyPageSchedule O 찜한일정
         > MyPageTable 
+ > Footer O
+ > 
 
 
 TODO:
