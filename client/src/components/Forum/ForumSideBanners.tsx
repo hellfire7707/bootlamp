@@ -12,11 +12,35 @@ interface HotPost {
   title: string;
 }
 
-const HotPostsBanner = ({ forumType }: PropsType) => {
+
+/**
+ * 포럼 좌측 배너 콤포넌트
+ * @param forumType 
+ * @returns 
+ */
+const ForumSideBanners = function({ forumType }: PropsType) {
+  return (
+    <S.Aside>
+      <HotPostsBanner forumType={forumType} />
+      <ImminentBootCampsBanner />
+      <TendencyTestBanner />
+    </S.Aside>
+  );
+};
+
+export default ForumSideBanners;
+
+
+/**
+ * 인기 게시글 배너 콤포넌트 
+ * @param forumType [postscript|study|mentoring]
+ * @returns 
+ */
+const HotPostsBanner = function({ forumType }: PropsType) {
   const [hotPosts, setHotPosts] = useState<HotPost[]>([]);
 
   useEffect(() => {
-    readHotPosts(forumType, setHotPosts);
+    readHotPosts(forumType, setHotPosts); //인기게시글 리스트조회 API 호출
   }, []);
 
   return (
@@ -39,6 +63,10 @@ interface ImminentBootCamp {
   finalRegisterDate: string;
 }
 
+/**
+ * 마감임박 배너 콤포넌트
+ * @returns 
+ */
 const ImminentBootCampsBanner = () => {
   const [imminentBootCamps, setImminentBootCamps] = useState<ImminentBootCamp[]>([]);
 
@@ -63,7 +91,11 @@ const ImminentBootCampsBanner = () => {
   );
 };
 
-const TendencyTestBanner = () => {
+/**
+ * 내 개발성형 배너 콤포넌트 
+ * @returns 
+ */
+const TendencyTestBanner = function() {
   return (
     <S.DivContainer>
       <S.H3>
@@ -76,15 +108,3 @@ const TendencyTestBanner = () => {
     </S.DivContainer>
   );
 };
-
-const ForumSideBanners = ({ forumType }: PropsType) => {
-  return (
-    <S.Aside>
-      <HotPostsBanner forumType={forumType} />
-      <ImminentBootCampsBanner />
-      <TendencyTestBanner />
-    </S.Aside>
-  );
-};
-
-export default ForumSideBanners;

@@ -64,6 +64,11 @@ interface HotPost {
   title: string;
 }
 
+/**
+ * 인기게시글 리스트조회 API 호출
+ * @param forumType 
+ * @param setHotPosts 
+ */
 export const readHotPosts = async (forumType: string, setHotPosts: React.Dispatch<HotPost[]>) => {
   const url = `/${forumType}?page=1&size=5&sort=totalVotes`;
 
@@ -93,6 +98,10 @@ interface ImminentBootCamp {
   finalRegisterDate: string;
 }
 
+/**
+ * 접수 마감임박 부트캠프 리스트 조회
+ * @param setImminentBootCamps
+ */
 export const readImminentBootCamps = async (setImminentBootCamps: React.Dispatch<ImminentBootCamp[]>) => {
   const url = `/bootcamp?page=1&size=3&sort=finalRegisterDate`;
 

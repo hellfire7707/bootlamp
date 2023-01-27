@@ -13,7 +13,13 @@ interface PropType {
 }
 
 /** props: text = banner title, pageType = post OR road OR boot  **/
-const Banner = ({ text, pageType }: PropType) => {
+/**
+ * 배너 콤포넌트
+ * @param text  배너텍스트 
+ * @pageType pageType 페이지유형
+ * @returns 
+ */
+const Banner = function({ text, pageType }: PropType) {
   return (
     <S.BannerWrap>
       <S.BannerInner>

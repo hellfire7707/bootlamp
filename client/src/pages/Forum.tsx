@@ -7,7 +7,10 @@ import ForumArticles from '../components/Forum/ForumArticles';
 import { useLocation } from 'react-router-dom';
 import ForumCards from '../components/Forum/ForumCards';
 
-const Forum = () => {
+/**
+ * 포럼 콤포넌트 
+ */
+const Forum = function() {
   const { pathname } = useLocation();
   const [, forumType, pageType] = pathname.split('/');
 
