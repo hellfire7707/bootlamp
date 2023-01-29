@@ -16,10 +16,22 @@ App
  > Forum
     > Banner O
     > ForumSideBanners O
-    > ForumArticles
+    > ForumArticles O
+        > ForumContentHeader O
+        > ForumArticle O
+            > ForumWrittenInfo O
     > ForumCards
-    > ForumDetail
-    > ForumWrite
+    > ForumDetail O
+        > MoreButton O
+        > ForumWrittenInfo O
+        > ForumArticlesAnswer
+            > AnswerListView
+        > StudyAnswer
+            > StudyAnswerList
+        > MentoringAnswer
+            > MentoringAnswerList
+        > BackgroundOtherButton O
+    > ForumWrite O
  > PageNotFound
  > AuthoRoute
  > MyPage O
@@ -35,3 +47,8 @@ App
 TODO:
  - UserProfile에 사진 업로드하고 보여주는 기능
  - 아이디/비밀번호 찾기 기능
+
+이게 뭐지?
+dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(post[`${forumType}Content`]),
+            }}

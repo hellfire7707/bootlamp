@@ -10,7 +10,12 @@ interface PropsType {
   setPosts: React.Dispatch<any>;
 }
 
-export const FilterButton = ({ pageType, url, setPosts }: PropsType) => {
+/**
+ * 검색필터버튼 콤포넌트
+ * @param param0 
+ * @returns 
+ */
+export const FilterButton = function({ pageType, url, setPosts }: PropsType) {
   const forumType = url.split('/')[1].split('?')[0];
   const CONDITIONS = [
     {

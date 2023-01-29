@@ -138,6 +138,12 @@ interface RequestBody {
   mentoringContent?: string;
 }
 
+/**
+ * 글작성 API 호출
+ * @param url 
+ * @param navigate 
+ * @param requestBody 
+ */
 export const createPost = async (url: string, navigate: NavigateFunction, requestBody: RequestBody) => {
   const access = localStorage.getItem('access');
   const forumType = url.split('/')[1];
@@ -159,6 +165,12 @@ export const createPost = async (url: string, navigate: NavigateFunction, reques
   }
 };
 
+/**
+ * 글수정 API호출
+ * @param url 
+ * @param navigate 
+ * @param requestBody 
+ */
 export const updatePost = async (url: string, navigate: NavigateFunction, requestBody: RequestBody) => {
   const access = localStorage.getItem('access');
   const forumType = url.split('/')[1];
@@ -179,6 +191,12 @@ export const updatePost = async (url: string, navigate: NavigateFunction, reques
     console.error(err);
   }
 };
+
+/**
+ * 글삭제 API호출
+ * @param url 
+ * @param navigate 
+ */
 
 export const deletePost = async (url: string, navigate: NavigateFunction) => {
   const access = localStorage.getItem('access');

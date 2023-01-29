@@ -18,12 +18,19 @@ interface MentoringAnswerListProps {
 
 export interface MentoringAnswerList extends Array<MentoringAnswerListProps> {}
 
-const MentoringAnswer = () => {
+/**
+ * 멘토링답글 콤포넌트
+ * @returns 
+ */
+const MentoringAnswer = function() {
   const { id } = useParams();
   const [mentoringAnswerContents, setMentoringAnswerContents] = useState('');
   const [mentoringAnswerList, setMentoringAnswerList] = useRecoilState(mentoringListData);
   const access = localStorage.getItem('access');
 
+  /** 
+   * 글 작성 API호출
+   */
   const postComment = () => {
     return axios({
       method: 'post',

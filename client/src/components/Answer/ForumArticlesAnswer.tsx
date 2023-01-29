@@ -18,12 +18,19 @@ interface AnswerListProps {
 
 export interface IAnswerList extends Array<AnswerListProps> {}
 
-const ForumArticlesAnswer = () => {
+/**
+ * 포럼 글 댓글 콤포넌트
+ * @returns 
+ */
+const ForumArticlesAnswer = function() {
   const { id } = useParams();
   const [answerContents, setAnswerContents] = useState('');
   const [answerList, setAnswerList] = useRecoilState(answerListData);
   const access = localStorage.getItem('access');
 
+  /** 
+   * 글 작성 API호출
+   */
   const postComment = () => {
     return axios({
       method: 'post',
@@ -49,6 +56,9 @@ const ForumArticlesAnswer = () => {
     }
   };
 
+  /**
+   * 등록버튼 클릭 이벤트
+   */
   const SummitAnswerBtn = () => {
     asyncFunction();
     setAnswerContents('');

@@ -18,21 +18,30 @@ interface PropsType {
   author?: string;
 }
 
-export const MoreButton = ({ buttonType, forumType, id, tagName, title, content, author }: PropsType) => {
+/**
+ * 어드민용 추가[수정/삭제] 버튼 콤포넌트
+ * @param param0 
+ * @returns 
+ */
+export const MoreButton = function ({ buttonType, forumType, id, tagName, title, content, author }: PropsType) {
   const [isClicked, setIsClicked] = useState(false);
-
   const navigate = useNavigate();
-
   const { nickname, memberRole } = useRecoilValue(logUser);
 
   const handleClick = () => {
     setIsClicked(!isClicked);
   };
 
+  /**
+   * 수정버튼 클릭 이벤트핸들러
+   */
   const handleUpdate = () => {
     navigate(`/${forumType}/update`, { state: { id, tagName, title, content } });
   };
 
+  /**
+   * 삭제버튼 클릭 이벤트핸들러 
+   * */
   const handleDelete = () => {
     if (buttonType === 'post' && (author === nickname || memberRole === 'ADMIN')) {
       if (window.confirm('게시글을 삭제하시겠습니까?')) {

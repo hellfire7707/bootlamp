@@ -8,7 +8,12 @@ interface PropsType {
   setPosts: React.Dispatch<any>;
 }
 
-const ForumContentHeader = ({ url, setPosts }: PropsType) => {
+/**
+ * 포럼컨텐츠헤더 콤포넌트
+ * @param param0 
+ * @returns 
+ */
+const ForumContentHeader = function ({ url, setPosts }: PropsType) {
   const forumType = url.split('/')[1].split('?')[0];
 
   return (

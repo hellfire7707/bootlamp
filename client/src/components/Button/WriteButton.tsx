@@ -35,7 +35,12 @@ interface PropsType {
   forumType: string;
 }
 
-export const WriteButton = ({ forumType }: PropsType) => {
+/**
+ * 글쓰기 버튼 콤포넌트
+ * @param param0 
+ * @returns 
+ */
+export const WriteButton = function({ forumType }: PropsType) {
   const navigate = useNavigate();
 
   const handleClick = () => {

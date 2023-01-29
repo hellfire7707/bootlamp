@@ -48,14 +48,19 @@ export const BorderOtherButton = ({ type, form, text = '기타', color = GREEN_M
   );
 };
 
-export const BackgroundOtherButton = ({
+/**
+ *기타 버튼 콤포넌트
+ * @param param0 
+ * @returns 
+ */
+export const BackgroundOtherButton = function({
   type,
   form,
   text = '기타',
   color = GREEN_MAIN,
   onClick,
   onSubmit,
-}: PropsType) => {
+}: PropsType) {
   return (
     <StyledBackgroundOtherButton type={type} form={form} color={color} onClick={onClick} onSubmit={onSubmit}>
       {text}

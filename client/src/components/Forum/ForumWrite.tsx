@@ -31,60 +31,65 @@ interface Tag {
   id: number;
   tagName: string;
 }
-type Tags = Tag[];
 
+/**
+ * 포럼 글작성 콤포넌트
+ * @returns 
+ */
 const ForumWrite = () => {
   const [tagName, setTagName] = useState('');
   const [content, setContent] = useState('');
-
   const { pathname, state } = useLocation();
   const [, forumType, action] = pathname.split('/');
-
   const navigate = useNavigate();
-
   const { register, handleSubmit, setValue } = useForm<FormValues>();
-
   const { isLog } = useRecoilValue(logUser);
 
-  const initializeTag = (tags: Tags) => {
+  const initializeTag = (tags: Tag[]) => {
     return { id: tags[0].id, tagName: tags[0].tagName };
   };
 
   useEffect(() => {
     if (action === 'write') {
       switch (forumType) {
-        case 'postscript':
+        case 'postscript': //후기
           setTagName(initializeTag(POSTSCRIPT_TAGS).tagName);
           break;
-        case 'study':
+        case 'study': //스터디모집
           setTagName(initializeTag(STUDY_TAGS).tagName);
           break;
-        case 'mentoring':
+        case 'mentoring': //멘토링
           setTagName(initializeTag(MENTORING_TAGS).tagName);
           break;
         default:
           break;
       }
     }
-
-    if (action === 'update') {
+    else if (action === 'update') {
       setTagName(state.tagName);
       setContent(state.content);
       setValue('title', state.title);
     }
   }, []);
 
+  /**
+   * 작성취소버튼 클릭이벤트 핸들러
+   */
   const handleDelete = () => {
     if (window.confirm('작성을 취소하시겠습니까?')) {
       if (action === 'write') {
-        navigate(`/${forumType}?page=1`);
+        navigate(`/${forumType}?page=1`); //게시글 리스트로 이동
       }
       if (action === 'update') {
-        navigate(`/${forumType}/${state.id}`);
+        navigate(`/${forumType}/${state.id}`); //상세보기로 이동
       }
     }
   };
 
+  /**
+   * 태그버튼클릭 이벤트
+   * @param e 
+   */
   const handleTags = (e: React.MouseEvent<HTMLButtonElement>) => {
     const text = (e.target as HTMLButtonElement).textContent;
 
@@ -93,6 +98,11 @@ const ForumWrite = () => {
     }
   };
 
+  /**
+   * 태그버튼 리스트 출력
+   * @param tag 
+   * @returns 
+   */
   const handleTagStyle = (tag: Tag) => {
     if (tag.tagName === tagName) {
       return <SmallBackgroundTagButton key={tag.id} text={tag.tagName} color={GREEN_MAIN} onClick={handleTags} />;
@@ -100,6 +110,9 @@ const ForumWrite = () => {
     return <SmallBorderTagButton key={tag.id} text={tag.tagName} color={GRAY_CONTENTS_BORDER} onClick={handleTags} />;
   };
 
+  /**
+   * 폼 서브밋 핸들러
+   */
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     if (isLog) {
       let requestBody: RequestBody;
@@ -135,11 +148,11 @@ const ForumWrite = () => {
           break;
       }
 
-      if (action === 'write') {
+      if (action === 'write') { //글 작성
         const url = `/${forumType}`;
         createPost(url, navigate, requestBody);
       }
-      if (action === 'update') {
+      else if (action === 'update') { //글 수정
         const url = `/${forumType}/${state.id}`;
         updatePost(url, navigate, requestBody);
       }

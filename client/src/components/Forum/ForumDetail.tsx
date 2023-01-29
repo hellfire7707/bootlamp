@@ -19,38 +19,48 @@ interface PropsType {
   page?: number;
 }
 
-const ForumDetail = ({ page = 1 }: PropsType) => {
+/**
+ * 글 상세보기 콤포넌트
+ * @param param0 
+ * @returns 
+ */
+const ForumDetail = function({ page = 1 }: PropsType) {
   const [post, setPost] = useState<any>(undefined);
   const [createdAt, setCreatedAt] = useState<string | undefined>(undefined);
-
   const { pathname } = useLocation();
   const [, forumType, id] = pathname.split('/');
-
   const navigate = useNavigate();
-
   const { nickname, memberRole } = useRecoilValue(logUser);
 
   useEffect(() => {
+    //글 상세조회 API호출
     const url = `/${forumType}/${id}`;
     readPost(url, setPost).then((res) => {
       setCreatedAt(formatDistanceToNow(new Date(res.createdAt), { addSuffix: true, locale: ko }));
     });
   }, []);
 
+  /**
+   * 목록조회 버튼 클릭
+   */
   const handleClick = () => {
     navigate(`/${forumType}?page=${page}`);
   };
 
+  /**
+   * 좋아요 버튼 클릭 이벤트
+   */
   const handleLike = async () => {
     if (post.vote === 0) {
       const voteUrl = `/${forumType}/votes/${id}?vote=1`;
       await votePost(voteUrl);
     }
-    if (post.vote === 1) {
+    else if (post.vote === 1) {
       const voteUrl = `/${forumType}/votes/${id}?vote=0`;
       await votePost(voteUrl);
     }
 
+    //글 다시 읽기
     const readUrl = `/${forumType}/${id}`;
     readPost(readUrl, setPost).then((res) => {
       setCreatedAt(formatDistanceToNow(new Date(res.createdAt), { addSuffix: true, locale: ko }));

@@ -18,12 +18,19 @@ interface StudyAnswerListProps {
 
 export interface StudyAnswerList extends Array<StudyAnswerListProps> {}
 
-const StudyAnswer = () => {
+/**
+ * 스터디 답글 콤포넌트
+ * @returns 
+ */
+const StudyAnswer = function() {
   const { id } = useParams();
   const [studyAnswerContents, setStudyAnswerContents] = useState('');
   const [studyAnswerList, setStudyAnswerList] = useRecoilState(studyListData);
   const access = localStorage.getItem('access');
 
+  /** 
+   * 글 작성 API호출
+   */
   const postComment = () => {
     return axios({
       method: 'post',
@@ -49,6 +56,9 @@ const StudyAnswer = () => {
     }
   };
 
+  /**
+   * 등록버튼 클릭 이벤트
+   */
   const SummitAnswerBtn = () => {
     asyncFunction();
     setStudyAnswerContents('');

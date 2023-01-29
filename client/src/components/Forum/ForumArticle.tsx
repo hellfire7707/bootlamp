@@ -9,7 +9,12 @@ interface PropsType {
   post: any;
 }
 
-const ForumArticle = ({ forumType, post }: PropsType) => {
+/**
+ * 포럼내용 콤포넌트
+ * @param param0 
+ * @returns 
+ */
+const ForumArticle = function({ forumType, post }: PropsType) {
   const content = post[`${forumType}Content`].replace(/<[^>]*>?/g, ' ');
   const createdAt = formatDistanceToNow(new Date(post.createdAt), { addSuffix: true, locale: ko });
 
