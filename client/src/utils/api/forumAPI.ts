@@ -19,6 +19,12 @@ export const readAllPosts = async (url: string, setPosts: React.Dispatch<any>, s
   }
 };
 
+/**
+ * 모든 게시글 불러오기
+ * @param url 
+ * @param setPosts 
+ * @param setTotalPages 
+ */
 export const getAllPostsInfinite = async (
   url: string,
   setPosts: React.Dispatch<any>,
