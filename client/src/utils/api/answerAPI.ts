@@ -1,6 +1,12 @@
 import axios from 'axios';
 const access = localStorage.getItem('access');
 
+/**
+ * 댓글 불러오기
+ * @param url 
+ * @param id 
+ * @returns 
+ */
 export const getComment = (url: string, id: string) => {
   return axios({
     method: 'get',
@@ -8,6 +14,12 @@ export const getComment = (url: string, id: string) => {
   });
 };
 
+/**
+ * 댓글 삭제
+ * @param id 
+ * @param url 
+ * @returns 
+ */
 export const deleteComment = (id: string, url: string) => {
   return axios({
     method: 'delete',

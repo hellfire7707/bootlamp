@@ -44,8 +44,8 @@ const MentoringAnswer = function() {
 
   const asyncFunction = async () => {
     try {
-      await postComment();
-      const getAwait = await getComment('mentoring', `${id}`);
+      await postComment(); //댓글 등록
+      const getAwait = await getComment('mentoring', `${id}`); //댓글 불러오기
       setMentoringAnswerList(getAwait.data.data.mentoringComments);
     } catch (error) {
       if (error instanceof Error) {
@@ -56,6 +56,9 @@ const MentoringAnswer = function() {
     }
   };
 
+  /**
+   * 등록버튼 클릭 이벤트
+   */
   const SummitAnswerBtn = () => {
     asyncFunction();
     setMentoringAnswerContents('');
