@@ -10,6 +10,11 @@ interface PropsType {
   post: any;
 }
 
+/**
+ * 카드형 게시물 콤포넌트
+ * @param param0 
+ * @returns 
+ */
 const ForumCard = ({ forumType, post }: PropsType) => {
   const content = post[`${forumType}Content`].replace(/<[^>]*>?/g, ' ');
   const createdAt = formatDistanceToNow(new Date(post.createdAt), { addSuffix: true, locale: ko });

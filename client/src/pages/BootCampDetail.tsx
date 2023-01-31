@@ -9,7 +9,11 @@ import { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { logUser } from '../atoms';
 
-const BootCampDetail = () => {
+/**
+ * 부트캠프/학원일정 상세 페이지
+ * @returns 
+ */
+const BootCampDetail = function() {
   const [items, setItems] = useState({
     bootcampId: 1,
     title: '',
@@ -36,6 +40,7 @@ const BootCampDetail = () => {
   const halfIdx = Math.floor(dataKeys.length / 2);
 
   useEffect(() => {
+    //상세정보 API호출
     axios({
       method: 'get',
       url: `/bootcamp/${pathId}`,

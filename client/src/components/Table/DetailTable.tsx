@@ -45,25 +45,36 @@ interface PropsType {
   dataKeys: Array<string>;
 }
 
+/**
+ * 내역값의 텍스트 설정
+ * @param data 
+ * @param el 
+ * @returns 
+ */
 function decider(data: DataType, el: string | number) {
   if (el === 'duration' && data[el] === '') {
     const start = data.startDate.substring(2);
     const end = data.endDate.substring(2);
     return `${start} ~ ${end}`;
-  } else if (el === 'site') {
+  } 
+  else if (el === 'site') {
     return (
       <a href={`${data[el]}`} target="_blank" rel="noopener noreferrer">
         <span>홈페이지로 이동</span>
       </a>
     );
-  } else if (el === 'satisfaction') {
+  } 
+  else if (el === 'satisfaction') {
     if (`${data[el]}` === '0') return '아직 평가 없음';
     return `${data[el]}/5`;
-  } else return data[el];
+  } 
+  else {
+    return data[el];
+  }
 }
 
 /**
- * DetailTable 콤포넌트
+ * 상세테이블 콤포넌트
  * @param data 상세 데이
  * @param halfIdx 
  * @param dataKeys 
