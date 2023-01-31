@@ -96,6 +96,7 @@ const ForumDetail = function({ page = 1 }: PropsType) {
             <ForumWrittenInfo position="left" author={post.member.nickname} createdAt={createdAt} view={post.view} />
           </S.TitleInfoContainer>
 
+          {/* 게시글 내용 */}
           <S.Content
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(post[`${forumType}Content`]),
@@ -108,7 +109,8 @@ const ForumDetail = function({ page = 1 }: PropsType) {
             </S.LikeButton>
             <span>{post[`${forumType}Comments`].length}개의 댓글</span>
           </S.LikeContainer>
-
+          
+          {/* 댓글 */}
           <S.CommentsContainer>
             {forumType === 'postscript' ? (
               <ForumArticlesAnswer />
