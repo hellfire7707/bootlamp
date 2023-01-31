@@ -18,17 +18,21 @@ interface StudyAnswerListProps {
   nickname: string;
 }
 
-const StudyAnswerList = ({ createdAt, studyCommentId, updatedAt, studyComment, nickname }: StudyAnswerListProps) => {
+/**
+ * 스터디 댓글리스트 콤포넌트
+ * @param param0 
+ * @returns 
+ */
+const StudyAnswerList = function({ createdAt, studyCommentId, updatedAt, studyComment, nickname }: StudyAnswerListProps){
   const [isPatch, setIsPatch] = useState<boolean>(false);
   const [commentValue, setCommentValue] = useState('');
   const setAnswerList = useSetRecoilState(studyListData);
   const access = localStorage.getItem('access');
   const { id } = useParams();
 
-  const editHandler = () => {
-    setIsPatch(!isPatch);
-  };
-
+  /**
+   * 댓글 저장 API 호출
+   */
   const patchComment = () => {
     return axios({
       method: 'patch',
@@ -40,6 +44,9 @@ const StudyAnswerList = ({ createdAt, studyCommentId, updatedAt, studyComment, n
     });
   };
 
+  /**
+   * 댓글 저장 작업
+   */
   const patchAsync = async () => {
     try {
       await patchComment();
@@ -55,6 +62,9 @@ const StudyAnswerList = ({ createdAt, studyCommentId, updatedAt, studyComment, n
     }
   };
 
+  /**
+   * 댓글 삭제 작업
+   */
   const deleteAsync = async () => {
     try {
       await deleteComment(`${studyCommentId}`, 'study');
@@ -70,25 +80,40 @@ const StudyAnswerList = ({ createdAt, studyCommentId, updatedAt, studyComment, n
     }
   };
 
+  /**
+   * 댓글 저장 핸들러
+   * @param e 
+   */
   const patchHandler = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     patchAsync();
     setIsPatch(!isPatch);
   };
 
+  /**
+   * 댓글 삭제 핸들러
+   * @param e 
+   */
   const deleteHandler = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     deleteAsync();
   };
 
+  /**
+   * 댓글 수정 핸들러
+   */
+  const editHandler = () => {
+    setIsPatch(!isPatch);
+  };
+
   return (
     <S.AnswerTextContent>
-      {isPatch ? (
+      {isPatch ? /* 등록 전*/  
         <div>
           <ReactQuill theme="snow" value={commentValue} onChange={setCommentValue} />
           <QuillContainer patchHandler={patchHandler} editHandler={editHandler} />
         </div>
-      ) : (
+       : /* 등록 후*/
         <div>
           <AnswerViewContainer
             nickname={nickname}
@@ -103,7 +128,7 @@ const StudyAnswerList = ({ createdAt, studyCommentId, updatedAt, studyComment, n
             }}
           />
         </div>
-      )}
+      }
     </S.AnswerTextContent>
   );
 };

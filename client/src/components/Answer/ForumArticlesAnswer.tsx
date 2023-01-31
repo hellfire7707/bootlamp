@@ -44,8 +44,8 @@ const ForumArticlesAnswer = function() {
 
   const asyncFunction = async () => {
     try {
-      await postComment();
-      const getAwait = await getComment('postscript', `${id}`);
+      await postComment(); //댓글작성
+      const getAwait = await getComment('postscript', `${id}`); //댓글 불러오기 API호출
       setAnswerList(getAwait.data.data.postscriptComments);
     } catch (error) {
       if (error instanceof Error) {
@@ -64,6 +64,9 @@ const ForumArticlesAnswer = function() {
     setAnswerContents('');
   };
 
+  /**
+   * 화면 초기화시 댓글 불러오기
+   */
   useEffect(() => {
     axios({
       method: 'get',
@@ -77,6 +80,7 @@ const ForumArticlesAnswer = function() {
   return (
     <S.ContainerViewAnswer>
       <S.ViewAnswer>
+        {/* 이전 댓글리스트 */}
         {answerList?.map((list) => (
           <AnswerListView
             key={list.postscriptCommentId}

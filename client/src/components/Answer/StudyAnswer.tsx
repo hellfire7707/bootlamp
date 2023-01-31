@@ -78,6 +78,7 @@ const StudyAnswer = function() {
   return (
     <S.ContainerViewAnswer>
       <S.ViewAnswer>
+        {/* 이전 댓글리스트 */}
         {studyAnswerList?.map((list) => (
           <StudyAnswerList
             key={list.studyCommentId}

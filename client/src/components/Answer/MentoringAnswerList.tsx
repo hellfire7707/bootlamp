@@ -18,23 +18,22 @@ interface MentoringAnswerListProps {
   nickname: string;
 }
 
-const MentoringAnswerList = ({
-  createdAt,
-  mentoringCommentId,
-  updatedAt,
-  mentoringComment,
-  nickname,
-}: MentoringAnswerListProps) => {
+/**
+ * 멘토링 댓글 콤포넌트
+ * @param param0 
+ * @returns 
+ */
+const MentoringAnswerList = function({createdAt, mentoringCommentId, updatedAt, mentoringComment, nickname, }: MentoringAnswerListProps) {
   const [isPatch, setIsPatch] = useState<boolean>(false);
   const [commentValue, setCommentValue] = useState('');
   const setAnswerList = useSetRecoilState(mentoringListData);
   const access = localStorage.getItem('access');
   const { id } = useParams();
 
-  const editHandler = () => {
-    setIsPatch(!isPatch);
-  };
-
+  /**
+   * 댓글 저장
+   * @returns 
+   */
   const patchComment = () => {
     return axios({
       method: 'patch',
@@ -46,6 +45,9 @@ const MentoringAnswerList = ({
     });
   };
 
+  /**
+   * 댓글 저장 작업
+   */
   const patchAsync = async () => {
     try {
       await patchComment();
@@ -61,6 +63,9 @@ const MentoringAnswerList = ({
     }
   };
 
+  /**
+   * 댓글 삭제 작업
+   */
   const deleteAsync = async () => {
     try {
       await deleteComment(`${mentoringCommentId}`, 'mentoring');
@@ -76,6 +81,10 @@ const MentoringAnswerList = ({
     }
   };
 
+  /**
+   * 댓글 저장 핸들러
+   * @param e 
+   */
   const patchHandler = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     patchAsync();
@@ -83,19 +92,29 @@ const MentoringAnswerList = ({
     setCommentValue('');
   };
 
+  /** 
+   * 댓글 삭제 핸들러
+   */
   const deleteHandler = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     deleteAsync();
   };
 
+  /** 
+   * 댓글 수정 핸들러
+   */
+  const editHandler = () => {
+    setIsPatch(!isPatch);
+  };
+  
   return (
     <S.AnswerTextContent>
-      {isPatch ? (
+      {isPatch ? /* 등록 전*/  
         <div>
           <ReactQuill theme="snow" value={commentValue} onChange={setCommentValue} />
           <QuillContainer patchHandler={patchHandler} editHandler={editHandler} />
         </div>
-      ) : (
+       : /* 등록 후*/  
         <div>
           <AnswerViewContainer
             nickname={nickname}
@@ -110,7 +129,7 @@ const MentoringAnswerList = ({
             }}
           />
         </div>
-      )}
+      }
     </S.AnswerTextContent>
   );
 };

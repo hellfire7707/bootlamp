@@ -18,23 +18,20 @@ interface AnswerListProps {
   nickname: string;
 }
 
-const AnswerListView = ({
-  createdAt,
-  postscriptCommentId,
-  updatedAt,
-  postscriptComment,
-  nickname,
-}: AnswerListProps) => {
+/** 
+ * 댓글리스트 콤포넌트
+ */
+const AnswerListView = function({createdAt, postscriptCommentId, updatedAt, postscriptComment, nickname, }: AnswerListProps) {
   const [isPatch, setIsPatch] = useState<boolean>(false);
   const [commentValue, setCommentValue] = useState('');
   const setAnswerList = useSetRecoilState(answerListData);
   const access = localStorage.getItem('access');
   const { id } = useParams();
 
-  const editHandler = () => {
-    setIsPatch(!isPatch);
-  };
-
+  /**
+   * 댓글저장
+   * @returns 
+   */
   const patchComment = () => {
     return axios({
       method: 'patch',
@@ -46,6 +43,9 @@ const AnswerListView = ({
     });
   };
 
+  /**
+   * 댓글 저장 작업 수행
+   */
   const patchAsync = async () => {
     try {
       await patchComment();
@@ -61,6 +61,9 @@ const AnswerListView = ({
     }
   };
 
+  /**
+   * 댓글 삭제 작업 수행
+   */
   const deleteAsync = async () => {
     try {
       await deleteComment(`${postscriptCommentId}`, 'postscript');
@@ -76,6 +79,10 @@ const AnswerListView = ({
     }
   };
 
+  /**
+   * 댓글 저장 핸들러
+   * @param e 
+   */
   const patchHandler = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     patchAsync();
@@ -83,19 +90,29 @@ const AnswerListView = ({
     setCommentValue('');
   };
 
+  /** 
+   * 댓글 삭제 핸들러
+   */
   const deleteHandler = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     deleteAsync();
   };
 
+  /**
+  * 수정 핸들러
+  */
+  const editHandler = () => {
+    setIsPatch(!isPatch);
+  };
+
   return (
     <S.AnswerTextContent>
-      {isPatch ? (
+      {isPatch ? /* 등록 전*/  
         <div>
           <ReactQuill theme="snow" value={commentValue} onChange={setCommentValue} />
           <QuillContainer patchHandler={patchHandler} editHandler={editHandler} />
         </div>
-      ) : (
+       : /* 등록 후*/  
         <div>
           <AnswerViewContainer
             nickname={nickname}
@@ -110,7 +127,7 @@ const AnswerListView = ({
             }}
           />
         </div>
-      )}
+      }
     </S.AnswerTextContent>
   );
 };

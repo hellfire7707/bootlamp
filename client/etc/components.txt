@@ -25,12 +25,18 @@ App
     > ForumDetail O
         > MoreButton O
         > ForumWrittenInfo O
-        > ForumArticlesAnswer
+        > ForumArticlesAnswer O
             > AnswerListView
+                > QuillContainer
+                > AnswerViewContainer
         > StudyAnswer
             > StudyAnswerList
+                > QuillContainer
+                > AnswerViewContainer
         > MentoringAnswer
             > MentoringAnswerList
+                > QuillContainer
+                > AnswerViewContainer
         > BackgroundOtherButton O
     > ForumWrite O
  > PageNotFound O
@@ -44,6 +50,8 @@ App
  > Footer O
  > 
 
+
+Question: user정보 권한
 
 TODO:
  - UserProfile에 사진 업로드하고 보여주는 기능

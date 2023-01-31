@@ -19,7 +19,7 @@ interface MentoringAnswerListProps {
 export interface MentoringAnswerList extends Array<MentoringAnswerListProps> {}
 
 /**
- * 멘토링답글 콤포넌트
+ * 멘토링댓글 콤포넌트
  * @returns 
  */
 const MentoringAnswer = function() {
@@ -77,6 +77,7 @@ const MentoringAnswer = function() {
   return (
     <S.ContainerViewAnswer>
       <S.ViewAnswer>
+        {/* 이전 댓글리스트 */}
         {mentoringAnswerList?.map((list) => (
           <MentoringAnswerList
             key={list.mentoringCommentId}

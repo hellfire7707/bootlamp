@@ -10,7 +10,12 @@ interface HandlerProps {
   editHandler: () => void;
 }
 
-export const QuillContainer = ({ patchHandler, editHandler }: HandlerProps) => {
+/**
+ * 댓글작성 버튼 영역 컴포넌트
+ * @param param0 
+ * @returns 
+ */
+export const QuillContainer = function ({ patchHandler, editHandler }: HandlerProps){
   return (
     <S.ButtonArea>
       <S.OkButton onClick={patchHandler}>완료</S.OkButton>
@@ -29,13 +34,12 @@ interface AnswerViewProps {
   deleteHandler: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
-export const AnswerViewContainer = ({
-  nickname,
-  updatedAt,
-  createdAt,
-  editHandler,
-  deleteHandler,
-}: AnswerViewProps) => {
+/**
+ * 댓글작성 영역 콤포넌트
+ * @param param0 
+ * @returns 
+ */
+export const AnswerViewContainer = function({nickname, updatedAt, createdAt, editHandler, deleteHandler, }: AnswerViewProps) {
   const createTime = formatDistanceToNow(new Date(createdAt), { addSuffix: true, locale: ko });
   const updateTime = formatDistanceToNow(new Date(updatedAt), { addSuffix: true, locale: ko });
 
